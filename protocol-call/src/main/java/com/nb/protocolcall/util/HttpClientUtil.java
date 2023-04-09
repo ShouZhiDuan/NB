@@ -174,7 +174,7 @@ public class HttpClientUtil {
             // 创建参数列表
 
             MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
-            // TODO:这个video自己填，因为这个方法非常少用，是我用来上传视频的，所以这里写死了
+            // 这个video自己填，因为这个方法非常少用，是我用来上传视频的，所以这里写成固定的了
             multipartEntityBuilder.addBinaryBody("video", bytes, ContentType.MULTIPART_FORM_DATA,fileName );
 
             httpPost.setEntity(multipartEntityBuilder.build());
