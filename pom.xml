@@ -21,6 +21,7 @@
     <modules>
         <module>http-call</module>
         <module>digest-util</module>
+        <module>jvm-util</module>
     </modules>
 
     <properties>
