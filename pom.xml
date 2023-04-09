@@ -19,7 +19,7 @@
     <description>父工程</description>
 
     <modules>
-        <module>protocol-call</module>
+        <module>http-call</module>
         <module>digest-util</module>
     </modules>
 

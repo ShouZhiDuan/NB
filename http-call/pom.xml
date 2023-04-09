@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>protocol-call</name>
+	<name>http-call</name>
 	<modelVersion>4.0.0</modelVersion>
 	<description>常用通信协议调用</description>
 
