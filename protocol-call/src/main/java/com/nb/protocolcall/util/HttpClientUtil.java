@@ -260,7 +260,6 @@ public class HttpClientUtil {
      * @return
      */
     public static JSONObject doPost(String url, Map<String, String> param) throws Exception {
-        log.info("666");
         // 设置协议http和https对应的处理socket链接工厂的对象
         Registry<ConnectionSocketFactory> registry
                 = RegistryBuilder.<ConnectionSocketFactory>create()
@@ -328,8 +327,6 @@ public class HttpClientUtil {
      * @return
      */
     public static JSONObject doPostJson(String url, String json) throws Exception {
-        log.info("666");
-
         if(StringUtils.isBlank(json)){
             log.error("-->>Http POST发送json数据，json不能为空，url:"+url);
             return null;
