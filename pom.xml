@@ -20,6 +20,7 @@
 
     <modules>
         <module>protocol-call</module>
+        <module>digest-util</module>
     </modules>
 
     <properties>
