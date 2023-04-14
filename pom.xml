@@ -19,6 +19,7 @@
     <description>父工程</description>
 
     <modules>
+        <module>demo</module>
         <module>http-call</module>
         <module>digest-util</module>
         <module>jvm-util</module>
