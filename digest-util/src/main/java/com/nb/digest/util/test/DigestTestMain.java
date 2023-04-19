@@ -23,9 +23,9 @@ public class DigestTestMain {
         //System.err.println(tokenStr);
 
 
-        //666666 Date date = new Date(1681298142046L);
-        //666666
-        //666666 System.out.println(date);
+        //byte[] base64Token = Base64.getDecoder().decode("eyJleHBpcmVUaW1lIjoxNjgxMjk4MTQyMDQ2LCJzdGFydFRpbWUiOjE2ODEyMTE3NDIwNDZ9");
+        //String tokenStr = new String(base64Token);
+        //System.err.println(tokenStr);
 
 
 
