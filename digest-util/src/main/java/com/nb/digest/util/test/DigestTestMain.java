@@ -26,10 +26,6 @@ public class DigestTestMain {
         //666666 byte[] base64Token = Base64.getDecoder().decode("eyJleHBpcmVUaW1lIjoxNjgxMjk4MTQyMDQ2LCJzdGFydFRpbWUiOjE2ODEyMTE3NDIwNDZ9");
         //String tokenStr = new String(base64Token);
         //System.err.println(tokenStr);
-
-
-
-
     }
 
     private static String getSph(String salt, String uph) {
