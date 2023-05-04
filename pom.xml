@@ -24,6 +24,7 @@
         <module>digest-util</module>
         <module>jvm-util</module>
         <module>common-base</module>
+        <module>global-exception</module>
     </modules>
 
     <properties>
