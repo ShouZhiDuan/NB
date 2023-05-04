@@ -17,5 +17,7 @@ public class StringTestMain {
         String txt2 = "666666";
         System.out.println("txt2=" + String.class.getName() + "@" + Integer.toHexString(System.identityHashCode(txt2)));
 
+        String msg = new String("测试666");
+
     }
 }
