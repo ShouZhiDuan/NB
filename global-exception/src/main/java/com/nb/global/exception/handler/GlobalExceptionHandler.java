@@ -30,7 +30,6 @@ public class GlobalExceptionHandler {
 
     }
 
-    @ResponseBody
     @ExceptionHandler(value = GlobalException.class)
     public CommonResult globalExceptionHandler(HttpServletRequest req, GlobalException ex) {
         log.error(ex.toString());
@@ -38,7 +37,6 @@ public class GlobalExceptionHandler {
         return CommonResult.error(ex.getCode(), ex.getMsg());
     }
 
-    @ResponseBody
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public CommonResult<Object> validationBodyException(MethodArgumentNotValidException ex) {
         log.error(ServiceExceptionEnum.METHOD_ARGUMENT_NOT_VALID_EXCEPTION.toString());
@@ -50,7 +48,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ResponseBody
     @ExceptionHandler({org.springframework.validation.BindException.class})
     public CommonResult<Object> validationBodyException(BindException ex) {
         log.error(ServiceExceptionEnum.BIND_EXCEPTION.toString());
@@ -62,7 +59,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ResponseBody
     @ExceptionHandler({ConstraintViolationException.class})
     public CommonResult<Object> handleServiceException(ConstraintViolationException ex) {
         log.error(ServiceExceptionEnum.CONSTRAINT_VIOLATION_EXCEPTION.toString());
@@ -76,7 +72,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ResponseBody
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public CommonResult<Object> missingServletRequestParameterException(MissingServletRequestParameterException ex) {
         log.error(ServiceExceptionEnum.MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION.toString());
@@ -87,7 +82,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ResponseBody
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public CommonResult httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
         log.error(ServiceExceptionEnum.HTTP_REQUEST_METHOD_NOT_SUPPORTED_EXCEPTION.toString());
