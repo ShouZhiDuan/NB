@@ -36,11 +36,12 @@
             <artifactId>global-exception</artifactId>
             <version>1.0.0</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>com.nb</groupId>
-            <artifactId>common-base</artifactId>
+            <artifactId>dingding</artifactId>
             <version>1.0.0</version>
-        </dependency>-->
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>

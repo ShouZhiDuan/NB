@@ -25,6 +25,8 @@
         <module>jvm-util</module>
         <module>common-base</module>
         <module>global-exception</module>
+        <module>dingding</module>
+        <module>pom-base</module>
     </modules>
 
     <properties>
@@ -46,12 +48,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

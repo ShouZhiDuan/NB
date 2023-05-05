@@ -5,6 +5,7 @@ import com.nb.common.base.enums.ServiceExceptionEnum;
 import com.nb.common.base.response.CommonResult;
 import com.nb.global.exception.GlobalException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ import java.util.Set;
  * @author dev
  */
 @Slf4j
+@Service
 @RestControllerAdvice(basePackages = "com.nb.demo.controller")
 public class GlobalExceptionHandler {
 
