@@ -1,6 +1,6 @@
 package com.nb.demo.controller;
 
-import com.nb.global.exception.handler.GlobalException;
+import com.nb.global.exception.GlobalException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

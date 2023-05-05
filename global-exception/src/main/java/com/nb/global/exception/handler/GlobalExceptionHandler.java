@@ -3,6 +3,7 @@ package com.nb.global.exception.handler;
 
 import com.nb.common.base.enums.ServiceExceptionEnum;
 import com.nb.common.base.response.CommonResult;
+import com.nb.global.exception.GlobalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindException;
@@ -22,6 +23,9 @@ import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author dev
+ */
 @Slf4j
 @RestControllerAdvice(basePackages = "com.nb.demo.controller")
 public class GlobalExceptionHandler {

@@ -1,4 +1,4 @@
-package com.nb.global.exception.handler;
+package com.nb.global.exception;
 
 public class GlobalException extends RuntimeException{
     private Integer code;
