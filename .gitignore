@@ -31,4 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-/common-base/target/*
+
+pom-base/tartget/
