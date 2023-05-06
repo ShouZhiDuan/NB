@@ -28,7 +28,6 @@ import java.util.Set;
  * @author dev
  */
 @Slf4j
-@Service
 @RestControllerAdvice(basePackages = "com.nb.demo.controller")
 public class GlobalExceptionHandler {
 

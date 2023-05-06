@@ -8,6 +8,8 @@ import okhttp3.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.Mac;
@@ -16,26 +18,28 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 /**
  * @author dev
  */
 
 @Slf4j
-@Service
+@Component
 public class DingDingUtil {
 
     @Value("${DING_BASE_URL}")
-    private String DING_BASE_URL;
+    public String DING_BASE_URL;
     @Value("${DING_TOKEN}")
-    private String DING_TOKEN;
+    public String DING_TOKEN;
     @Value("${DING_SECRET}")
-    private String DING_SECRET;
+    public String DING_SECRET;
 
     private  OkHttpClient okHttpClient;
     private  String url;
 
     public DingDingUtil(){
+        log.info("【钉钉】：初始化组件");
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(10L, TimeUnit.SECONDS);
         builder.readTimeout(10L, TimeUnit.SECONDS);
@@ -44,16 +48,6 @@ public class DingDingUtil {
         dispatcher.setMaxRequests(200);
         builder.dispatcher(dispatcher);
         okHttpClient = builder.build();
-        try {
-            if(StringUtils.isBlank(DING_BASE_URL)
-                    || StringUtils.isBlank(DING_TOKEN)
-                    || StringUtils.isBlank(DING_SECRET)){
-
-            }
-            url = getSign();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -63,6 +57,27 @@ public class DingDingUtil {
      * @return 发送状态回执
      */
     public String postWithJson(String message) {
+
+        log.info(DING_BASE_URL);
+        log.info(DING_TOKEN);
+        log.info(DING_SECRET);
+
+        if(StringUtils.isBlank(DING_BASE_URL)
+                || StringUtils.isBlank(DING_TOKEN)
+                || StringUtils.isBlank(DING_SECRET)){
+            log.error("【钉钉】：请配置钉钉环境变量：DING_BASE_URL DING_TOKEN DING_SECRET");
+        }
+
+        if(StringUtils.isBlank(url)){
+            try {
+                url = getSign();
+            } catch (Exception e) {
+                log.error("【钉钉】：{}", e);
+                throw new RuntimeException(e);
+            }
+
+        }
+
         //这里@为全体成员，可具体@某个人只需加上手机号即可
         String str="{ \"at\": { \"isAtAll\": true }, \"text\": { \"content\": \" %s \"}, \"msgtype\":\"text\" }";
         String format = String.format(str, message);
