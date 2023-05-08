@@ -26,7 +26,7 @@
         <module>common-base</module>
         <module>global-exception</module>
         <module>dingding</module>
-        <module>pom-base</module>
+        <module>common-pom</module>
     </modules>
 
     <properties>

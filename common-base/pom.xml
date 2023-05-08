@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>com.nb</groupId>
-            <artifactId>pom-base</artifactId>
+            <artifactId>common-pom</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
