@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
 //    private RestControllerAdviceBasepackagesConfig basepackagesConfig;
 
     public GlobalExceptionHandler(){
-
+      log.info("【GlobalExceptionHandler】" + "初始化全局异常组件");
     }
 
 //    @PostConstruct
