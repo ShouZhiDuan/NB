@@ -13,7 +13,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class DemoApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
         log.info("【SPRINGBOOT】启动成功");
     }
 

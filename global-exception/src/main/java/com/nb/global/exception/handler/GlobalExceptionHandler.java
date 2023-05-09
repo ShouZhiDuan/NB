@@ -8,7 +8,6 @@ import com.nb.global.exception.config.RestControllerAdviceBasepackagesConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -16,32 +15,30 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Proxy;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
  * @author dev
  */
 @Slf4j
-@RestControllerAdvice(basePackages = "${rest.controller.advice.basepackages}")
-//@RestControllerAdvice(basePackages = "test.controller")
+//@RestControllerAdvice(basePackages = "${rest.controller.advice.basepackages}")
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @Autowired
-    private Environment environment;
+//    @Autowired
+//    private Environment environment;
 
-    @Autowired
-    private RestControllerAdviceBasepackagesConfig basepackagesConfig;
+//    @Autowired
+//    private RestControllerAdviceBasepackagesConfig basepackagesConfig;
 
     public GlobalExceptionHandler(){
 
@@ -61,13 +58,12 @@ public class GlobalExceptionHandler {
 //        log.info("【GlobalExceptionHandler】初始全局异常拦截：" + basepackagesConfig.getBasepackages());
 //    }
 
-    @PostConstruct
-    public void init() throws NoSuchMethodException {
-        RestControllerAdvice mapping = this.getClass().getAnnotation(RestControllerAdvice.class);
-        String value = environment.resolvePlaceholders(mapping.basePackages()[0]);
-        // 输出
-        System.out.println("value-------->" + value);
-    }
+//    @PostConstruct
+//    public void init() throws NoSuchMethodException {
+//        RestControllerAdvice mapping = this.getClass().getAnnotation(RestControllerAdvice.class);
+//        String value = environment.resolvePlaceholders(mapping.basePackages()[0]);
+//        System.out.println("value-------->" + value);
+//    }
 
 
     @ResponseBody
