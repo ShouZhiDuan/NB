@@ -105,7 +105,9 @@ public class HttpClientUtil {
     public static JSONObject doGet(String url, Map<String, String> param) throws HttpClientException{
 
         // 创建Httpclient对象
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        //CloseableHttpClient httpClient = HttpClients.createDefault();
+
+        CloseableHttpClient httpClient = getCloseableHttpClient();
 
         String resultString = "";
         CloseableHttpResponse response = null;
@@ -162,7 +164,10 @@ public class HttpClientUtil {
      */
     public static JSONObject doPostBinaryBody(String url,byte[] bytes,String fileName) throws HttpClientException{
         // 创建Httpclient对象
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        //CloseableHttpClient httpClient = HttpClients.createDefault();
+
+        CloseableHttpClient httpClient = getCloseableHttpClient();
+
         CloseableHttpResponse response = null;
         String resultString = "";
         try {
@@ -209,7 +214,10 @@ public class HttpClientUtil {
      */
     public static JSONObject doPostFormData(String url,Map<String, String> formData) throws HttpClientException{
         // 创建Httpclient对象
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        //CloseableHttpClient httpClient = HttpClients.createDefault();
+
+        CloseableHttpClient httpClient = getCloseableHttpClient();
+
         CloseableHttpResponse response = null;
         String resultString = "";
         try {
@@ -260,19 +268,21 @@ public class HttpClientUtil {
      * @return
      */
     public static JSONObject doPost(String url, Map<String, String> param) throws Exception {
-        // 设置协议http和https对应的处理socket链接工厂的对象
-        Registry<ConnectionSocketFactory> registry
-                = RegistryBuilder.<ConnectionSocketFactory>create()
-                .register("http", PlainConnectionSocketFactory.INSTANCE)
-                .register("https", trustHttpsCertificates())
-                .build();
+//        // 设置协议http和https对应的处理socket链接工厂的对象
+//        Registry<ConnectionSocketFactory> registry
+//                = RegistryBuilder.<ConnectionSocketFactory>create()
+//                .register("http", PlainConnectionSocketFactory.INSTANCE)
+//                .register("https", trustHttpsCertificates())
+//                .build();
+//
+//        PoolingHttpClientConnectionManager connManager = new
+//                PoolingHttpClientConnectionManager(registry);
+//        //配置了HttpClients,创建自定义的httpclient对象
+//        HttpClientBuilder builder = HttpClients.custom().setConnectionManager(connManager);
+//
+//        CloseableHttpClient httpClient = builder.build();
 
-        PoolingHttpClientConnectionManager connManager = new
-                PoolingHttpClientConnectionManager(registry);
-        //配置了HttpClients,创建自定义的httpclient对象
-        HttpClientBuilder builder = HttpClients.custom().setConnectionManager(connManager);
-
-        CloseableHttpClient httpClient = builder.build();
+        CloseableHttpClient httpClient = getCloseableHttpClient();
 
         CloseableHttpResponse response = null;
         String resultString = "";
@@ -332,19 +342,20 @@ public class HttpClientUtil {
             return null;
         }
 
-        // 设置协议http和https对应的处理socket链接工厂的对象
-        Registry<ConnectionSocketFactory> registry
-                = RegistryBuilder.<ConnectionSocketFactory>create()
-                .register("http", PlainConnectionSocketFactory.INSTANCE)
-                .register("https", trustHttpsCertificates())
-                .build();
+//        // 设置协议http和https对应的处理socket链接工厂的对象
+//        Registry<ConnectionSocketFactory> registry
+//                = RegistryBuilder.<ConnectionSocketFactory>create()
+//                .register("http", PlainConnectionSocketFactory.INSTANCE)
+//                .register("https", trustHttpsCertificates())
+//                .build();
+//
+//        PoolingHttpClientConnectionManager connManager = new
+//                PoolingHttpClientConnectionManager(registry);
+//        //配置了HttpClients,创建自定义的httpclient对象
+//        HttpClientBuilder builder = HttpClients.custom().setConnectionManager(connManager);
 
-        PoolingHttpClientConnectionManager connManager = new
-                PoolingHttpClientConnectionManager(registry);
-        //配置了HttpClients,创建自定义的httpclient对象
-        HttpClientBuilder builder = HttpClients.custom().setConnectionManager(connManager);
+        CloseableHttpClient httpClient = getCloseableHttpClient();
 
-        CloseableHttpClient httpClient = builder.build();
         CloseableHttpResponse response = null;
         String resultString = "";
         try {
@@ -472,46 +483,35 @@ public class HttpClientUtil {
     }
 
     /**
-     * 绕过验证
-     *
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws KeyManagementException
+     * 获取CloseableHttpClient
      */
-    public static SSLContext createIgnoreVerifySSL() throws NoSuchAlgorithmException, KeyManagementException {
-        //SSLContext sc = SSLContext.getInstance("SSLv3");
-        SSLContext sc = SSLContext.getInstance("TLSv1.2");
-
-        // 实现一个X509TrustManager接口，用于绕过验证，不用修改里面的方法
-        X509TrustManager trustManager = new X509TrustManager() {
-            @Override
-            public void checkClientTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString) throws CertificateException {
-
-            }
-
-            @Override
-            public void checkServerTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString) throws CertificateException {
-            }
-
-            @Override
-            public X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
-        };
-
-        sc.init(null, new TrustManager[] { trustManager }, null);
-        return sc;
+    public static CloseableHttpClient getCloseableHttpClient(){
+        try {
+            Registry<ConnectionSocketFactory> registry
+                    = RegistryBuilder.<ConnectionSocketFactory>create()
+                    .register("http", PlainConnectionSocketFactory.INSTANCE)
+                    .register("https", trustHttpsCertificates())
+                    .build();
+            PoolingHttpClientConnectionManager connManager = new
+                    PoolingHttpClientConnectionManager(registry);
+            HttpClientBuilder builder = HttpClients.custom().setConnectionManager(connManager);
+            CloseableHttpClient httpClient = builder.build();
+            return httpClient;
+        } catch (Exception e) {
+            log.error("【HttpClientUtil】" + "获取CloseableHttpClient异常。");
+            throw new RuntimeException(e);
+        }
     }
 
     /**
-     * 新实现方式
+     * 以下为绕过证书以及HostName校验逻辑
      * @return
      * @throws Exception
      */
     public static SSLConnectionSocketFactory trustHttpsCertificates() throws Exception {
         SSLConnectionSocketFactory socketFactory = null;
         TrustManager[] trustAllCerts = new TrustManager[1];
-        TrustManager tm = new myTM();
+        TrustManager tm = new MyTM();
         trustAllCerts[0] = tm;
         SSLContext sc = null;
         try {
@@ -524,7 +524,7 @@ public class HttpClientUtil {
         return socketFactory;
     }
 
-    static class myTM implements TrustManager, X509TrustManager {
+    static class MyTM implements TrustManager, X509TrustManager {
 
         @Override
         public X509Certificate[] getAcceptedIssuers() {
