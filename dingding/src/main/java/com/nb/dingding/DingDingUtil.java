@@ -3,10 +3,12 @@ package com.nb.dingding;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import com.nb.dingding.config.DingDingPushConfigProperties;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
@@ -28,18 +30,14 @@ import java.util.logging.Logger;
 @Component
 public class DingDingUtil {
 
-    @Value("${DING_BASE_URL}")
-    public String DING_BASE_URL;
-    @Value("${DING_TOKEN}")
-    public String DING_TOKEN;
-    @Value("${DING_SECRET}")
-    public String DING_SECRET;
+    private final DingDingPushConfigProperties dingDingPushConfigProperties;
 
     private  OkHttpClient okHttpClient;
     private  String url;
 
-    public DingDingUtil(){
+    public DingDingUtil(DingDingPushConfigProperties dingDingPushConfigProperties){
         log.info("【钉钉】：初始化组件");
+        this.dingDingPushConfigProperties = dingDingPushConfigProperties;
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(10L, TimeUnit.SECONDS);
         builder.readTimeout(10L, TimeUnit.SECONDS);
@@ -58,14 +56,15 @@ public class DingDingUtil {
      */
     public String postWithJson(String message) {
 
-        log.info(DING_BASE_URL);
-        log.info(DING_TOKEN);
-        log.info(DING_SECRET);
+        log.info(dingDingPushConfigProperties.getBaseurl());
+        log.info(dingDingPushConfigProperties.getToken());
+        log.info(dingDingPushConfigProperties.getSecret());
 
-        if(StringUtils.isBlank(DING_BASE_URL)
-                || StringUtils.isBlank(DING_TOKEN)
-                || StringUtils.isBlank(DING_SECRET)){
-            log.error("【钉钉】：请配置钉钉环境变量：DING_BASE_URL DING_TOKEN DING_SECRET");
+        if(StringUtils.isBlank(dingDingPushConfigProperties.getBaseurl())
+                || StringUtils.isBlank(dingDingPushConfigProperties.getToken())
+                || StringUtils.isBlank(dingDingPushConfigProperties.getSecret())){
+            log.error("【钉钉】：请配置钉钉环境变量：dingding.baseurl dingding.token dingding.secret");
+            return null;
         }
 
         if(StringUtils.isBlank(url)){
@@ -75,7 +74,6 @@ public class DingDingUtil {
                 log.error("【钉钉】：{}", e);
                 throw new RuntimeException(e);
             }
-
         }
 
         //这里@为全体成员，可具体@某个人只需加上手机号即可
@@ -102,13 +100,16 @@ public class DingDingUtil {
      */
     private String getSign() throws Exception {
 
-        //String baseUrl = "https://oapi.dingtalk.com/robot/send?access_token=";
-        //String token = "73c0484011841db64bebcaebe448f997cb2053c67c605c9a0048caaf74a43ba0";
-        //String secret = "SECa0234a80f393ed75e25d22c486c9f26da77bf1e1984e7b0c5add125fb5491cf1";
+        String baseUrl = dingDingPushConfigProperties.getBaseurl();
+        String token = dingDingPushConfigProperties.getToken();
+        String secret = dingDingPushConfigProperties.getSecret();
 
-        String baseUrl = DING_BASE_URL;
-        String token = DING_TOKEN;
-        String secret = DING_SECRET;
+        if(StringUtils.isBlank(dingDingPushConfigProperties.getBaseurl())
+                || StringUtils.isBlank(dingDingPushConfigProperties.getToken())
+                || StringUtils.isBlank(dingDingPushConfigProperties.getSecret())){
+            log.error("【钉钉】：请配置钉钉环境变量：dingding.baseurl dingding.token dingding.secret");
+            return null;
+        }
 
         long timestamp = System.currentTimeMillis();
         String stringToSign = timestamp + "\n" + secret;
