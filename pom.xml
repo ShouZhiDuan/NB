@@ -27,6 +27,7 @@
         <module>global-exception</module>
         <module>dingding</module>
         <module>common-pom</module>
+        <module>algo4j</module>
     </modules>
 
     <properties>
