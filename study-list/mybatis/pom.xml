@@ -10,7 +10,7 @@
 
 	<groupId>com.nb</groupId>
 	<artifactId>mybatis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>mybatis</name>
 	<modelVersion>4.0.0</modelVersion>
