@@ -28,6 +28,7 @@
         <module>dingding</module>
         <module>common-pom</module>
         <module>starter-algo4j</module>
+        <module>study-list</module>
     </modules>
 
     <properties>

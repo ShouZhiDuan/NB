@@ -17,4 +17,8 @@
     <modelVersion>4.0.0</modelVersion>
     <description>study-list</description>
 
+    <modules>
+        <module>mybatis</module>
+    </modules>
+
 </project>
