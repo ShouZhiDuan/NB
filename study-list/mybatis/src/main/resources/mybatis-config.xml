@@ -23,9 +23,9 @@
         <setting name="localCacheScope" value="SESSION"/>
     </settings>
 
-<!--    <typeAliases>
+    <typeAliases>
         <typeAlias alias="blog" type="com.gupaoedu.domain.Blog" />
-    </typeAliases>-->
+    </typeAliases>
 
 <!--    <typeHandlers>
         <typeHandler handler="com.gupaoedu.type.MyTypeHandler"></typeHandler>
