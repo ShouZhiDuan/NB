@@ -3,14 +3,10 @@ package com.gupaoedu.dbutils.dao;
 import com.gupaoedu.dbutils.HikariUtil;
 import com.gupaoedu.dbutils.dto.BlogDto;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.*;
-
-import java.math.BigInteger;
-import java.sql.Connection;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: qingshan

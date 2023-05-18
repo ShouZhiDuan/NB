@@ -15,6 +15,8 @@ import java.sql.SQLException;
  *
  */
 public class MyTypeHandler extends BaseTypeHandler<String> {
+
+    @Override
     public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType)
             throws SQLException {
         // 设置 String 类型的参数的时候调用，Java类型到JDBC类型
@@ -24,6 +26,7 @@ public class MyTypeHandler extends BaseTypeHandler<String> {
         ps.setString(i, parameter);
     }
 
+    @Override
     public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
         // 根据列名获取 String 类型的参数的时候调用，JDBC类型到java类型
         // 注意只有在字段上添加typeHandler属性才会生效
@@ -31,6 +34,7 @@ public class MyTypeHandler extends BaseTypeHandler<String> {
         return rs.getString(columnName);
     }
 
+    @Override
     public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
         // 根据下标获取 String 类型的参数的时候调用
         System.out.println("---------------getNullableResult2："+columnIndex);
