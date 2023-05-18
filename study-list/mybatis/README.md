@@ -49,4 +49,5 @@ https://github.com/abel533/Mapper/wiki
 ## 10、MyBatis-Plus
 ```text
 https://mybatis.plus/
+https://mybatis.plus/guide/
 ```
