@@ -51,3 +51,8 @@ https://github.com/abel533/Mapper/wiki
 https://mybatis.plus/
 https://mybatis.plus/guide/
 ```
+
+## 11、MyBatis-Blog
+```text
+https://blog.mybatis.org/
+```
