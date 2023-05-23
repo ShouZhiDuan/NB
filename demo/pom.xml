@@ -41,6 +41,11 @@
             <artifactId>dingding</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.crypto.tink</groupId>
+            <artifactId>tink</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>
