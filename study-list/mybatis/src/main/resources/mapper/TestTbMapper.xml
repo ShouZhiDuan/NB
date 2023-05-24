@@ -38,5 +38,21 @@
     </select>
 
 
+    <!--
+      另一种一对一查询
+    -->
+    <resultMap id="TestDbAndBlogRstMap2" type="com.gupaoedu.domain.associate.TestDbAndBlog" >
+        <id column="id" property="id" jdbcType="INTEGER" javaType="integer"/>
+        <result column="name" property="name" jdbcType="VARCHAR" javaType="string"/>
+        <association property="blog" javaType="com.gupaoedu.domain.Blog"
+                     column="bid" select="com.gupaoedu.mapper.BlogMapper.selectBlogById"/>
+    </resultMap>
+
+    <select id="selectTestTbById2" resultMap="TestDbAndBlogRstMap2">
+        select * from test_tb where id = #{id};
+    </select>
+
+
+
 
 </mapper>

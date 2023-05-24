@@ -1,5 +1,6 @@
 package com.gupaoedu.mapper;
 
+import com.gupaoedu.domain.Blog;
 import com.gupaoedu.domain.TestTb;
 import com.gupaoedu.domain.associate.TestDbAndBlog;
 import org.apache.ibatis.annotations.Param;
@@ -17,5 +18,7 @@ public interface TestTbMapper {
      TestTb selectTestTbById(@Param("id") Integer id,@Param("tbName") String tbName);
 
      TestDbAndBlog selectTestDbAndBlogRst(@Param("id") Integer id);
+
+    TestDbAndBlog selectTestTbById2(@Param("id") Integer id);
 
 }

@@ -33,16 +33,25 @@ public class MyBatisTestMain {
      * @date 15:25 2023/5/24
      * @param args
      **/
-    public static void main(String[] args) throws IOException {
+//    public static void main(String[] args) throws IOException {
+//        InputStream resourceAsStream = Resources.getResourceAsStream(resource);
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+//        SqlSession sqlSession = sqlSessionFactory.openSession();
+//        TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
+//        TestDbAndBlog testTb = mapper.selectTestDbAndBlogRst(1);
+//        System.out.println(testTb);
+//    }
 
+
+
+    public static void main(String[] args) throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
-        TestDbAndBlog testTb = mapper.selectTestDbAndBlogRst(1);
+        TestDbAndBlog testTb = mapper.selectTestTbById2(1);
         System.out.println(testTb);
     }
-
 
 
 
