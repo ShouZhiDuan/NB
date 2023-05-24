@@ -41,17 +41,25 @@ public class JdbcTestMain {
             /**
              * batch insert
              */
-            preparedStatement = connection.prepareStatement("INSERT INTO `shouzhi`.`blog` (`bid`, `name`, `author_id`) VALUES (?,?, ?)");
-            for (int m = 5; m < 1000005; m++) {
-                preparedStatement.setInt(1,m);
-                preparedStatement.setString(2,"name" + m);
-                preparedStatement.setInt(3, m);
+//            preparedStatement = connection.prepareStatement("INSERT INTO `shouzhi`.`blog` (`bid`, `name`, `author_id`) VALUES (?,?, ?)");
+//            for (int m = 5; m < 1000005; m++) {
+//                preparedStatement.setInt(1,m);
+//                preparedStatement.setString(2,"name" + m);
+//                preparedStatement.setInt(3, m);
+//                preparedStatement.addBatch();
+//            }
+//            preparedStatement.executeBatch();
+
+
+            preparedStatement = connection.prepareStatement("INSERT INTO `shouzhi`.`blog` (`name`, `author_id`) VALUES (?,?)");
+            for (int m = 1; m < 10; m++) {
+                preparedStatement.setString(1,"name-666-" + m);
+                preparedStatement.setInt(2, m);
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
 
             stopWatch.stop();
-
             log.info(stopWatch.prettyPrint());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

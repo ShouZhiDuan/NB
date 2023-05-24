@@ -1,7 +1,8 @@
 package com.gupaoedu.demo;
 
-import com.gupaoedu.domain.Blog;
-import com.gupaoedu.mapper.BlogMapper;
+import com.gupaoedu.domain.TestTb;
+import com.gupaoedu.domain.associate.TestDbAndBlog;
+import com.gupaoedu.mapper.TestTbMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,15 +18,32 @@ public class MyBatisTestMain {
 
     private static String resource = "mybatis-config.xml";
 
-
-
-    public static void main(String[] args) throws IOException {
+/*    public static void main(String[] args) throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
-        Blog blog = mapper.selectBlogById(1);
-        System.out.println(blog);
+        TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
+        TestTb testDb = mapper.selectTestTbById(1,"test_tb");
+        System.out.println(testDb);
+    }*/
+
+    /**
+     * @Description: 嵌套结果查询测试
+     * @author duanshouzhi
+     * @date 15:25 2023/5/24
+     * @param args
+     **/
+    public static void main(String[] args) throws IOException {
+
+        InputStream resourceAsStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
+        TestDbAndBlog testTb = mapper.selectTestDbAndBlogRst(1);
+        System.out.println(testTb);
     }
+
+
+
 
 }

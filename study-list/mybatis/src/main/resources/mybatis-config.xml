@@ -57,8 +57,9 @@
     </environments>
 
     <mappers>
-        <mapper resource="BlogMapper.xml"/>
-        <mapper resource="BlogMapperExt.xml"/>
+        <mapper resource="mapper/BlogMapper.xml"/>
+        <mapper resource="mapper/BlogMapperExt.xml"/>
+        <mapper resource="mapper/TestTbMapper.xml"/>
     </mappers>
 
 </configuration>

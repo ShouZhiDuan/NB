@@ -24,7 +24,7 @@
         <result column="author_id" property="authorId" jdbcType="INTEGER"/>
     </resultMap>
 
-    <!-- 根据文章查询作者，一对一查询的结果，嵌套查询 -->
+    <!-- 根据文章查询作者，一对一查询的结果，嵌套结果 -->
     <resultMap id="BlogWithAuthorResultMap" type="com.gupaoedu.domain.associate.BlogAndAuthor">
         <id column="bid" property="bid" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
@@ -35,7 +35,7 @@
         </association>
     </resultMap>
 
-    <!-- 另一种联合查询(一对一)的实现，但是这种方式有“N+1”的问题 -->
+    <!-- 另一种联合查询(一对一)的实现，但是这种方式有“N+1”的问题 嵌套查询-->
     <resultMap id="BlogWithAuthorQueryMap" type="com.gupaoedu.domain.associate.BlogAndAuthor">
         <id column="bid" property="bid" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
