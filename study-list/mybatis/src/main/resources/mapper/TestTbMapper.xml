@@ -39,7 +39,7 @@
 
 
     <!--
-      另一种一对一查询
+      一对一查询 （嵌套查询）
     -->
     <resultMap id="TestDbAndBlogRstMap2" type="com.gupaoedu.domain.associate.TestDbAndBlog" >
         <id column="id" property="id" jdbcType="INTEGER" javaType="integer"/>
