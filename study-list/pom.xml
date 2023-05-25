@@ -19,6 +19,7 @@
 
     <modules>
         <module>mybatis</module>
+        <module>java-basis</module>
     </modules>
 
 </project>
