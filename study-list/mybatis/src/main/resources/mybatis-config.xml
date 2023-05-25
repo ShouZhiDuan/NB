@@ -4,30 +4,34 @@
 
     <properties resource="db.properties"></properties>
     <settings>
-        <!-- 打印查询语句 -->
+        <!-- 1、打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
 
-        <!-- 控制全局缓存（二级缓存），默认 true-->
+        <!-- 2、控制全局缓存（二级缓存），默认 true-->
         <setting name="cacheEnabled" value="true"/>
 
         <!--
-        延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。
-        默认 false 关闭延迟加载
-            true   开启延迟加载
-         注意：
-            嵌套结果不会有懒加载机制
-            嵌套查询才会有懒加载机制
+             3、延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。
+                默认： false 关闭延迟加载
+                      true   开启延迟加载
+                注意：
+                    嵌套结果不会有懒加载机制
+                    嵌套查询才会有懒加载机制
          -->
         <setting name="lazyLoadingEnabled" value="true"/>
-        <!-- 当开启时，任何方法的调用都会加载该对象的所有属性。默认 false，可通过select标签的 fetchType来覆盖-->
+
+        <!-- 4、当开启时，任何方法的调用都会加载该对象的所有属性。默认 false，可通过select标签的 fetchType来覆盖-->
         <!--<setting name="aggressiveLazyLoading" value="true"/>-->
-        <!--  Mybatis 创建具有延迟加载能力的对象所用到的代理工具，默认JAVASSIST -->
+
+        <!--  5、Mybatis 创建具有延迟加载能力的对象所用到的代理工具，默认JAVASSIST -->
         <!--<setting name="proxyFactory" value="CGLIB" />-->
+
         <!-- STATEMENT级别的缓存，使一级缓存，只针对当前执行的这一statement有效 -->
         <!--
                 <setting name="localCacheScope" value="STATEMENT"/>
         -->
         <setting name="localCacheScope" value="SESSION"/>
+
     </settings>
 
     <typeAliases>

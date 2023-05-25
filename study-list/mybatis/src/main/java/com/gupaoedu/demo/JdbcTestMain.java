@@ -49,8 +49,6 @@ public class JdbcTestMain {
 //                preparedStatement.addBatch();
 //            }
 //            preparedStatement.executeBatch();
-
-
             preparedStatement = connection.prepareStatement("INSERT INTO `shouzhi`.`blog` (`name`, `author_id`) VALUES (?,?)");
             for (int m = 1; m < 10; m++) {
                 preparedStatement.setString(1,"name-666-" + m);
