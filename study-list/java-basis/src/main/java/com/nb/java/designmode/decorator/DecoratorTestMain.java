@@ -7,7 +7,7 @@ package com.nb.java.designmode.decorator;
  * @ClassName DecoratorTestMain
  * @author: duanshouzhi
  * @create: 2023-05-25 15:22
- * @description:
+ * @description: 装饰器模式测试
  **/
 public class DecoratorTestMain {
 
