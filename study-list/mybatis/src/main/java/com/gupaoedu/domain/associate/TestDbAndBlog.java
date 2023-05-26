@@ -1,5 +1,6 @@
 package com.gupaoedu.domain.associate;
 
+
 import com.gupaoedu.domain.Blog;
 import lombok.Data;
 

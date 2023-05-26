@@ -1,6 +1,5 @@
 package com.gupaoedu.mapper;
 
-import com.gupaoedu.domain.Blog;
 import com.gupaoedu.domain.TestTb;
 import com.gupaoedu.domain.associate.TestDbAndBlog;
 import org.apache.ibatis.annotations.Param;
