@@ -4,6 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * @Company 锘崴科技
@@ -34,6 +37,7 @@ public class TestClassLoader extends ClassLoader{
 
     private byte[] getDate(String name) {
         String path = classPath + File.separatorChar + name.replace('.', File.separatorChar) + ".class";
+        System.out.println("class path : " + path);
         try {
             InputStream is = new FileInputStream(path);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -50,15 +54,20 @@ public class TestClassLoader extends ClassLoader{
     }
 
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         // 自定义class类路径
-        String classPath = "C:/Users/dev/Desktop/";
+        String classPath = "E:\\dsz-git-work\\NB\\study-list\\java-basis\\src\\classloader";
         // 自定义的类加载器实现：TestClassLoader
         TestClassLoader testClassLoader = new TestClassLoader(classPath);
         // 通过自定义类加载器加载
-        Class<?> object = testClassLoader.loadClass("com.test.myclass.MyClass");
+        Class<?> clazz = testClassLoader.loadClass("com.test.myclass.MyClass");
+        Constructor<?> constructor = clazz.getConstructor(null);
+        Object o = constructor.newInstance();
+        Method sayNameMethod = clazz.getMethod("sayName");
+        sayNameMethod.invoke(o);
+
         // 这里的打印应该是我们自定义的类加载器：TestClassLoader
-        System.out.println(object.getClassLoader());
+        System.out.println(clazz.getClassLoader());
     }
 
 

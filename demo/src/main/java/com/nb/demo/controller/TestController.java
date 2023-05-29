@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @Autowired
-    KmsTemplate kmsTemplate;
-
-    @GetMapping("/test")
-    public void testKms(){
-       kmsTemplate.generateDEK();
-       kmsTemplate.generateCMK();
-       return;
-    }
-
-    @GetMapping("/test")
-    public void test(){
-        throw new GlobalException(-1,"测试抛出自定义异常");
-    }
+//    @Autowired
+//    KmsTemplate kmsTemplate;
+//
+//    @GetMapping("/test")
+//    public void testKms(){
+//       kmsTemplate.generateDEK();
+//       kmsTemplate.generateCMK();
+//       return;
+//    }
+//
+//    @GetMapping("/test")
+//    public void test(){
+//        throw new GlobalException(-1,"测试抛出自定义异常");
+//    }
 
 
 }

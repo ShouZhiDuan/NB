@@ -11,5 +11,9 @@ public class MyClass{
 	public void sayName(){
 		System.out.println("This MyClass");
 	}
+
+	public String sayName2(){
+		return "===sayName3===";
+	}
 	
 }
