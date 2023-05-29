@@ -6,7 +6,7 @@
       根据ID查询数据
     -->
     <select id="selectTestTbById" resultType="com.gupaoedu.domain.TestTb">
-           select  * from ${tbName} where id = ${id}
+           select  * from test_tb where id = #{id} or t_name = #{tbName}
     </select>
 
 

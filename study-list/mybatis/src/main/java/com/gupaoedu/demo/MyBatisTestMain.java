@@ -1,6 +1,7 @@
 package com.gupaoedu.demo;
 
 import com.alibaba.fastjson.JSON;
+import com.gupaoedu.domain.TestTb;
 import com.gupaoedu.domain.associate.TestDbAndBlog;
 import com.gupaoedu.mapper.TestTbMapper;
 import lombok.Data;
@@ -53,9 +54,15 @@ public class MyBatisTestMain {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
-        TestDbAndBlog testTb = mapper.selectTestTbById2(1);
-        TestDbAndBlog testTb2 = mapper.selectTestTbById2(1);
-        System.out.println(testTb);
+        //TestDbAndBlog testTb = mapper.selectTestTbById2(666);
+
+        TestTb test_name = mapper.selectTestTbById(123, "test_name");
+
+        //TestDbAndBlog testDbAndBlog = mapper.selectTestDbAndBlogRst(1);
+
+        //TestDbAndBlog testTb2 = mapper.selectTestTbById2(1);
+
+        //Object o = sqlSession.selectOne("select * from test");
     }
 
 

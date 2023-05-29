@@ -19,6 +19,7 @@ public class TestController {
     public void testKms(){
        kmsTemplate.generateDEK();
        kmsTemplate.generateCMK();
+       return;
     }
 
     @GetMapping("/test")
