@@ -5,7 +5,10 @@
     <properties resource="db.properties"></properties>
     <settings>
         <!-- 1、打印查询语句 -->
-        <setting name="logImpl" value="STDOUT_LOGGING" />
+        <!--<setting name="logImpl" value="STDOUT_LOGGING" />-->
+
+        <!--关闭这个就可以打印出最终执行带参数的完整SQL语句-->
+        <setting name="logImpl" value="NO_LOGGING" />
 
         <!-- 2、控制全局缓存（二级缓存），默认 true-->
         <setting name="cacheEnabled" value="false"/>
@@ -45,13 +48,13 @@
         <property name="gupao" value="666"/>
     </objectFactory>-->
 
-<!--    <plugins>
+    <plugins>
         <plugin interceptor="com.gupaoedu.interceptor.SQLInterceptor">
             <property name="gupao" value="betterme" />
         </plugin>
         <plugin interceptor="com.gupaoedu.interceptor.MyPageInterceptor">
         </plugin>
-    </plugins>-->
+    </plugins>
 
     <environments default="development">
         <environment id="development">

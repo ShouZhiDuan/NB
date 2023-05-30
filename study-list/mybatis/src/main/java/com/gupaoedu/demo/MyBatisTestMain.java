@@ -56,9 +56,9 @@ public class MyBatisTestMain {
         TestTbMapper mapper = sqlSession.getMapper(TestTbMapper.class);
         //TestDbAndBlog testTb = mapper.selectTestTbById2(666);
 
-        TestTb test_name = mapper.selectTestTbById(123, "test_name");
+        //TestTb test_name = mapper.selectTestTbById(123, "test_name");
 
-        //TestDbAndBlog testDbAndBlog = mapper.selectTestDbAndBlogRst(1);
+        TestDbAndBlog testDbAndBlog = mapper.selectTestDbAndBlogRst(1);
 
         //TestDbAndBlog testTb2 = mapper.selectTestTbById2(1);
 
