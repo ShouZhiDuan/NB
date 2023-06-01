@@ -1,20 +1,13 @@
 package com.gupaoedu.demo;
 
-import com.alibaba.fastjson.JSON;
-import com.gupaoedu.domain.TestTb;
 import com.gupaoedu.domain.associate.TestDbAndBlog;
 import com.gupaoedu.mapper.TestTbMapper;
-import lombok.Data;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import javax.lang.model.element.NestingKind;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author dev
