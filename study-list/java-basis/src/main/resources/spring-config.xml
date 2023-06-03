@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        使用类的无参构造函数创建对象
+        singleton 单例
+        lazy-init="true" 首次使用该bean 的时候,才会创建出实例
+    -->
+
+    <context:component-scan base-package="com.nb.java.springbean.registry"/>
+
+
+    <bean id="user1" class="com.nb.java.springbean.demo1.User" scope="singleton" lazy-init="true" primary="true"></bean>
+
+    <bean id="user2" class="com.nb.java.springbean.demo1.StaticFactory" factory-method="getUser" scope="singleton"></bean>
+
+    <bean id="userFactory" class="com.nb.java.springbean.demo1.UserFactory" ></bean>
+
+    <!--
+       factory-bean 其实也是一种bean 来自于上面定义的id为userFactory的Bean实例
+     -->
+    <bean id="user3" factory-bean="userFactory" factory-method="getUser" scope="singleton"></bean>
+</beans>
