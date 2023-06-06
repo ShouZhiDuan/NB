@@ -1,6 +1,8 @@
 package com.nb.java.controller;
 
 import com.nb.java.classloader.TestClassLoader;
+import com.nb.java.springbean.registry.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.lang.reflect.Constructor;
@@ -19,8 +21,12 @@ import java.lang.reflect.Method;
 @RestController
 public class TestController {
 
+    @Autowired
+    private TestService testService;
+
     @GetMapping("/test")
     public String test(String name){
+        testService.test();
         return name;
     }
 

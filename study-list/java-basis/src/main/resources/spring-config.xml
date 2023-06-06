@@ -14,11 +14,11 @@
     <context:component-scan base-package="com.nb.java.springbean.registry"/>
 
 
-    <bean id="user1" class="com.nb.java.springbean.demo1.User" scope="singleton" lazy-init="true" primary="true"></bean>
+    <bean id="user1" class="com.nb.java.springbean.beanfactory.User" scope="singleton" lazy-init="true" primary="true"></bean>
 
-    <bean id="user2" class="com.nb.java.springbean.demo1.StaticFactory" factory-method="getUser" scope="singleton"></bean>
+    <bean id="user2" class="com.nb.java.springbean.beanfactory.StaticFactory" factory-method="getUser" scope="singleton"></bean>
 
-    <bean id="userFactory" class="com.nb.java.springbean.demo1.UserFactory" ></bean>
+    <bean id="userFactory" class="com.nb.java.springbean.beanfactory.UserFactory" ></bean>
 
     <!--
        factory-bean 其实也是一种bean 来自于上面定义的id为userFactory的Bean实例

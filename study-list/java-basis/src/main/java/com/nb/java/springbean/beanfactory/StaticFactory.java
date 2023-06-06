@@ -1,4 +1,4 @@
-package com.nb.java.springbean.demo1;
+package com.nb.java.springbean.beanfactory;
 
 /**
  * @Company 锘崴科技

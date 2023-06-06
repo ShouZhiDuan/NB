@@ -1,7 +1,7 @@
 package com.nb.java.springbean.registry;
 
+import com.nb.java.springbean.beanfactory.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,6 +18,10 @@ public class TestService {
 
     private final MyMapper myMapper;
 
+    @Autowired
+    private User user;
+
+
     public TestService(MyMapper myMapper) {
         this.myMapper = myMapper;
     }
@@ -26,6 +30,7 @@ public class TestService {
     public void test(){
         System.out.println("======TestService======");
         myMapper.test();
+        System.out.println("输出=>" + user.getName());
     }
 
 }

@@ -1,8 +1,6 @@
-package com.nb.java.springbean.demo1;
+package com.nb.java.springbean.beanfactory;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
  * @Company 锘崴科技
