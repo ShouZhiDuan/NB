@@ -18,10 +18,11 @@ import org.springframework.stereotype.Component;
  * @ClassName UserBeanFactoryPostProcessor
  * @author: duanshouzhi
  * @create: 2023-06-06 11:30
- * @description:
+ * @description: 可以@Autowired注入使用
  **/
 @Component
 public class UserBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
