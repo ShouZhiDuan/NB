@@ -1,5 +1,6 @@
 package com.nb.java.springbean;
 
+import com.nb.java.abstract2interface.AbstractInterfaceTestMain;
 import com.nb.java.springbean.beanfactory.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -61,6 +62,7 @@ public class SpringBeanUtil {
         beanFactory.registerBeanDefinition("user", beanDefinition);
         // 获取bean
         User user = beanFactory.getBean(User.class);
+
     }
 
 }
