@@ -1,7 +1,5 @@
 package com.nb.java.enums;
 
-import lombok.Data;
-
 /**
  * @Company 锘崴科技
  * @Version 1.0
@@ -11,7 +9,15 @@ import lombok.Data;
  * @create: 2023-06-09 11:39
  * @description:
  **/
-@Data
+
 public class Test {
   private String msg;
+
+  public String getMsg() {
+    return msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
 }
