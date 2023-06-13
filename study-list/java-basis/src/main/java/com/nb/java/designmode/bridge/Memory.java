@@ -1,4 +1,4 @@
-package com.nb.java.designmode.bradge;
+package com.nb.java.designmode.bridge;
 
 /**
  * @Company 锘崴科技

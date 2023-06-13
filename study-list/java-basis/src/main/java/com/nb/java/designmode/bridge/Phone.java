@@ -1,4 +1,4 @@
-package com.nb.java.designmode.bradge;
+package com.nb.java.designmode.bridge;
 
 /**
  * @Company 锘崴科技
@@ -12,21 +12,21 @@ package com.nb.java.designmode.bradge;
 
 public abstract class Phone {
 
-    private Memory memory;
+    private com.nb.java.designmode.bridge.Memory memory;
 
     public Phone() {
 
     }
 
-    public Phone(Memory memory) {
+    public Phone(com.nb.java.designmode.bridge.Memory memory) {
         this.memory = memory;
     }
 
-    public Memory getMemory() {
+    public com.nb.java.designmode.bridge.Memory getMemory() {
         return memory;
     }
 
-    public void setMemory(Memory memory) {
+    public void setMemory(com.nb.java.designmode.bridge.Memory memory) {
         this.memory = memory;
     }
 

@@ -1,4 +1,4 @@
-package com.nb.java.designmode.bradge;
+package com.nb.java.designmode.bridge;
 
 /**
  * @Company 锘崴科技
@@ -9,7 +9,7 @@ package com.nb.java.designmode.bradge;
  * @create: 2023-06-12 16:06
  * @description:
  **/
-public class HuaWei extends Phone{
+public class HuaWei extends com.nb.java.designmode.bridge.Phone {
     @Override
     public void buyPhone() {
         getMemory().addMemory();

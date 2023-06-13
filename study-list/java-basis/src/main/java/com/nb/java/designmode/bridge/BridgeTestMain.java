@@ -1,4 +1,4 @@
-package com.nb.java.designmode.bradge;
+package com.nb.java.designmode.bridge;
 
 /**
  * @Company 锘崴科技
@@ -9,11 +9,11 @@ package com.nb.java.designmode.bradge;
  * @create: 2023-06-12 16:08
  * @description:
  **/
-public class BradgeTestMain {
+public class BridgeTestMain {
 
     public static void main(String[] args) {
-        Memory8g memory8g = new Memory8g();
-        HuaWei huaWei = new HuaWei();
+        com.nb.java.designmode.bridge.Memory8g memory8g = new com.nb.java.designmode.bridge.Memory8g();
+        com.nb.java.designmode.bridge.HuaWei huaWei = new com.nb.java.designmode.bridge.HuaWei();
         huaWei.setMemory(memory8g);
         huaWei.buyPhone();
     }
