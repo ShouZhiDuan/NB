@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
  * @ClassName NvRepositoryFactoryBean
  * @author: duanshouzhi
  * @create: 2023-06-13 11:23
- * @description:
+ * @description: https://blog.csdn.net/qq_43177328/article/details/114492728
  **/
 public class NvRepositoryFactoryBean<T> implements FactoryBean<T> {
 

@@ -1,10 +1,12 @@
 package com.nb.java.controller;
 
 import com.nb.java.classloader.TestClassLoader;
+import com.nb.java.javabean.TestBean;
 import com.nb.java.springbean.registry.TestService;
 import com.nb.java.springbean.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -33,6 +35,13 @@ public class TestController {
         testService.test();
         userRepository.findAll(null);
         return name;
+    }
+
+    @GetMapping("/json")
+    public Object test(@RequestBody TestBean bean){
+        System.out.println(bean);
+        //return null;
+        return bean;
     }
 
     @GetMapping("/refresh")
