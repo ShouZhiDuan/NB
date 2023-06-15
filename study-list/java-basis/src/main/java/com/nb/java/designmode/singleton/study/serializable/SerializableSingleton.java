@@ -24,4 +24,8 @@ public class SerializableSingleton implements Serializable {
         return SINGLETON;
     }
 
+    public Object readResolve(){
+        return SINGLETON;
+    }
+
 }
