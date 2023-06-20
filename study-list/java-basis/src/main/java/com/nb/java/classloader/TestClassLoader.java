@@ -26,7 +26,7 @@ public class TestClassLoader extends ClassLoader{
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        byte[] classData = getDate(name);
+        byte[] classData = getData(name);
         if (classData == null) {
             throw new ClassNotFoundException();
         } else {
@@ -35,7 +35,7 @@ public class TestClassLoader extends ClassLoader{
     }
 
 
-    private byte[] getDate(String name) {
+    private byte[] getData(String name) {
         String path = classPath + File.separatorChar + name.replace('.', File.separatorChar) + ".class";
         System.out.println("class path : " + path);
         try {
