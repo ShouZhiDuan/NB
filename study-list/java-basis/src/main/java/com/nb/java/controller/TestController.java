@@ -5,12 +5,13 @@ import com.nb.java.javabean.TestBean;
 import com.nb.java.springbean.registry.TestService;
 import com.nb.java.springbean.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Company 锘崴科技
@@ -54,6 +55,12 @@ public class TestController {
         Method sayNameMethod = clazz.getMethod("sayName2");
         String invoke = (String) sayNameMethod.invoke(o);
         return invoke;
+    }
+
+
+    @PostMapping("/test2")
+    public Object test2(@RequestBody HashMap map){
+        return map;
     }
 
 }
