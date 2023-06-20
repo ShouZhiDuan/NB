@@ -1,5 +1,7 @@
 package com.nb.java.designmode.prototype;
 
+import java.io.Serializable;
+
 /**
  * @Company 锘崴科技
  * @Version 1.0
@@ -9,7 +11,7 @@ package com.nb.java.designmode.prototype;
  * @create: 2023-06-19 14:30
  * @description:
  **/
-public class Teacher implements Cloneable {
+public class Teacher implements Cloneable, Serializable {
 
     private String name;
 

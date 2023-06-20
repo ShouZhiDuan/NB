@@ -1,5 +1,7 @@
 package com.nb.java.designmode.prototype;
 
+import java.io.Serializable;
+
 /**
  * @Company 锘崴科技
  * @Version 1.0
@@ -9,7 +11,7 @@ package com.nb.java.designmode.prototype;
  * @create: 2023-06-19 15:58
  * @description:
  **/
-public class Student {
+public class Student implements Serializable {
 
     private String stdName;
     private Integer stdAge;
