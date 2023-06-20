@@ -43,6 +43,7 @@ public class TestMain {
 
     /**
      * 深拷贝
+     * 参考：https://blog.csdn.net/m0_47944994/article/details/127884565
      */
     private static void test2() throws IOException, ClassNotFoundException {
         Student student = new Student("学生", 1);
