@@ -4,14 +4,18 @@ import com.nb.java.classloader.TestClassLoader;
 import com.nb.java.javabean.TestBean;
 import com.nb.java.springbean.registry.TestService;
 import com.nb.java.springbean.repository.UserRepository;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Company 锘崴科技
@@ -61,6 +65,30 @@ public class TestController {
     @PostMapping("/test2")
     public Object test2(@RequestBody HashMap map){
         return map;
+    }
+
+    enum Test{
+        Type("hanmei");
+
+        @Getter@Setter
+        private String name;
+
+        Test(String name){
+            this.name = name;
+        }
+
+        public static void main(String[] args) {
+            System.out.println(Test.Type==(Test.Type));
+        }
+
+        @Override
+        public String toString() {
+            return this.name;
+        }
+    }
+
+    public static void main(String[] args) {
+        Test.values();
     }
 
 }
