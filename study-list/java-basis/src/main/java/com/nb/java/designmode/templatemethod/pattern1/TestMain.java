@@ -13,10 +13,12 @@ public class TestMain {
 
     public static void main(String[] args) {
         //AbstractStudent student = new XiaoMing();
-        XiaoMing student = new XiaoMing();
-        student.todayTask();
+        AbstractStudent xiaoMing = new XiaoMing();
+        xiaoMing.todayTask();
 
-        //System.out.println(student.isOk);
+        AbstractStudent hanMei = new HanMei();
+        hanMei.todayTask();
+
     }
 
 }
