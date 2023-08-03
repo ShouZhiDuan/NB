@@ -29,6 +29,7 @@
         <module>common-pom</module>
         <module>starter-algo4j</module>
         <module>study-list</module>
+        <module>protobuf4j</module>
     </modules>
 
     <properties>
